@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/da_courses/db" VERSION="20250926" COMMENT="DA Courses schema">
+  <TABLES>
+    <TABLE NAME="da_courses" COMMENT="Courses with PDFs">
+      <FIELDS>
+        <FIELD NAME="id"          TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course_name" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="file_id"     TYPE="char" LENGTH="64" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="file_name"   TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="file_path"   TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int"  LENGTH="10" NOTNULL="true" DEFAULT="0"  SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="da_courses_questions" COMMENT="Courses questions">
+      <FIELDS>
+        <FIELD NAME="id"          TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course_id"   TYPE="int"  LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="q_text"      TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="a_text"      TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="isapproved"  TYPE="int"  LENGTH="1" NOTNULL="true" SEQUENCE="false" DEFAULT="0" COMMENT="1 = approved, 0 = not approved"/>
+        <FIELD NAME="timecreated" TYPE="int"  LENGTH="10" NOTNULL="true" DEFAULT="0"  SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course_id_idx" UNIQUE="false" FIELDS="course_id"/>
+      </INDEXES>
+    </TABLE>
+
+  </TABLES>
+</XMLDB>

@@ -1,0 +1,11 @@
+li:has(a[href*="local/da_courses/index.php"]) {
+    padding: 15px;
+}
+a[href*="local/da_courses/index.php"] {
+    background: blue;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: -5px 0px 15px 5px #837373;
+}
